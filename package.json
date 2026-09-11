@@ -1,0 +1,27 @@
+{
+  "name": "12mcq",
+  "version": "1.0.0",
+  "description": "Class 12 One Mark Practice - Tamil Nadu Board Practice Hub",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmsureshmscit/12mcq.git"
+  },
+  "keywords": [
+    "education",
+    "practice",
+    "mcq",
+    "tamil-nadu",
+    "class-12"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmsureshmscit/12mcq/issues"
+  },
+  "homepage": "https://github.com/pmsureshmscit/12mcq#readme"
+}
