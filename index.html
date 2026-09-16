@@ -288,7 +288,7 @@
       <span class="eyebrow"><span class="dot"></span>ஒரு மதிப்பெண் வினாத் தேர்வு இணையதளம்</span>
       <h1 class="title">12ஆம் வகுப்பு மாணவர்களுக்கான இணைய வழி பயிற்சி</h1>
       <p class="welcome-text">
-        தமிழ், ஆங்கிலம், வரலாறு, பொருளாதாரம், வணிகவியல், கணக்குப்பதிவியல் (தமிழ் &amp; ஆங்கில வழி),
+        தமிழ், ஆங்கிலம், இயற்பியல், வேதியியல், உயிரியல், கணினி அறிவியல், கணினி பயன்பாடுகள், கணிதம், வரலாறு, பொருளாதாரம், வணிகவியல், கணக்குப்பதிவியல் (தமிழ் &amp; ஆங்கில வழி),
         மற்றும் வேலைவாய்ப்புத் திறன்கள் — பாடத்தைத் தேர்வு செய்து ஒரு மதிப்பெண் வினாக்களுக்குப் பயிற்சி செய்யலாம்.
       </p>
     </div>
@@ -454,7 +454,10 @@ const ICONS = {
   com:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>',
   acc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
   hist:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M4 8h16M6 8v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8M10 12v4M14 12v4"/></svg>',
-  emp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><circle cx="18" cy="8" r="2.3"/><path d="M17 12.5c2.6.3 4 2 4 4.5"/></svg>'
+  emp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><circle cx="18" cy="8" r="2.3"/><path d="M17 12.5c2.6.3 4 2 4 4.5"/></svg>',
+  phy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/></svg>',
+  chem:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v6l-5.5 9a1.8 1.8 0 0 0 1.6 2.7h11.8a1.8 1.8 0 0 0 1.6-2.7L14 9V3"/><path d="M7.5 15h9"/></svg>',
+  math:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h6M8 4v16M17 8v11M13.5 12h7M13.5 17.5h7"/></svg>'
 };
 
 /* ============ UI TEXT (Tamil medium vs English medium) ============ */
@@ -557,6 +560,12 @@ function T(key){
 const SUBJECTS = [
   {id:'ta12',   name:'தமிழ்',                    sub:'Tamil',            icon:'lang', color:'#DC2626'},
   {id:'en12',   name:'ஆங்கிலம்',                 sub:'English',          icon:'globe',color:'#2563EB'},
+  {id:'phy_ta', name:'இயற்பியல்',                sub:'தமிழ் வழி',        icon:'phy',  color:'#4338CA', link:'physics_12_tm_quiz.html'},
+  {id:'phy_en', name:'PHYSICS',                  sub:'ENGLISH MEDIUM',   icon:'phy',  color:'#4338CA', link:'physics_12_em_quiz.html'},
+  {id:'chem_ta',name:'வேதியியல்',                sub:'தமிழ் வழி',        icon:'chem', color:'#EA580C', link:'chemistry_12_tm_quiz.html'},
+  {id:'chem_en',name:'CHEMISTRY',                sub:'ENGLISH MEDIUM',   icon:'chem', color:'#EA580C', link:'chemistry_12_em_quiz.html'},
+  {id:'math_ta',name:'கணிதம்',                   sub:'தமிழ் வழி',        icon:'math', color:'#0891B2', link:'maths_12_tm_quiz.html'},
+  {id:'math_en',name:'MATHEMATICS',              sub:'ENGLISH MEDIUM',   icon:'math', color:'#0891B2', link:'maths_12_em_quiz.html'},
   {id:'hist_ta',name:'வரலாறு',                   sub:'தமிழ் வழி',        icon:'hist', color:'#B45309'},
   {id:'hist_en',name:'HISTORY',                  sub:'ENGLISH MEDIUM',   icon:'hist', color:'#B45309'},
   {id:'eco_ta', name:'பொருளாதாரம்',              sub:'தமிழ் வழி',        icon:'eco',  color:'#15803D'},
@@ -725,12 +734,16 @@ function renderSubjectGrid(){
       <div class="subj-icon" style="color:${s.color};background:${s.color}1A;">${ICONS[s.icon]}</div>
       <div>
         <div class="subj-name">${s.name}</div>
-        <div class="subj-sub">${s.sub}</div>
+        <div class="subj-sub">${s.sub}${s.link? ' · 🔗 Opens in new tab' : ''}</div>
       </div>
     </button>`).join('');
 }
 
 function selectSubject(s){
+  if(s.link){
+    window.open(s.link, '_blank');
+    return;
+  }
   state.subject = s;
   document.getElementById('form-chip-label').textContent = '12th · ' + s.name;
   showScreen('screen-form',2);
