@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12ஆம் வகுப்பு வேதியியல் | ஒரு மதிப்பெண் வினாத்தேர்வு</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   10th Science Test — Stylesheet
+   Theme: bright modern edtech — playful gradients, punchy accents
+   ========================================================== */
+
+:root{
+  --purple:#7C5CFC;
+  --purple-dark:#5F3DD9;
+  --teal:#00C2B8;
+  --teal-dark:#00A69D;
+  --coral:#FF6B5E;
+  --coral-dark:#E5493C;
+  --blue:#3E8EFF;
+  --blue-dark:#2570E8;
+  --pink:#FF5CA8;
+  --pink-dark:#E23F8C;
+  --lime:#8BD450;
+  --lime-dark:#67B22C;
+  --yellow:#FFC845;
+  --ink:#241C3D;
+  --ink-soft:#6E6690;
+  --paper:#ffffff;
+  --cloud:#F6F5FF;
+  --line:#E7E3F7;
+  --good:#22B573;
+  --good-bg:#E3FBEF;
+  --bad:#FF4D5E;
+  --bad-bg:#FFE9EC;
+  --radius-lg:24px;
+  --radius-md:16px;
+  --radius-sm:12px;
+  --shadow-soft:0 16px 40px -16px rgba(124,92,252,0.35);
+  --shadow-tight:0 6px 16px -6px rgba(124,92,252,0.35);
+  --font-display:'Noto Serif Tamil','Baloo 2', 'Fraunces', system-ui, sans-serif;
+  --font-body:'Noto Sans Tamil','Poppins', system-ui, sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(124,92,252,0.16), transparent 40%),
+    radial-gradient(circle at 92% 18%, rgba(0,194,184,0.16), transparent 42%),
+    radial-gradient(circle at 15% 92%, rgba(255,107,94,0.14), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(255,92,168,0.14), transparent 42%),
+    var(--cloud);
+  background-attachment:fixed;
+  min-height:100%;
+}
+
+.d-none{display:none !important;}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(100deg, var(--purple) 0%, #9B6CFC 30%, var(--pink) 65%, var(--coral) 100%);
+  background-size:200% 200%;
+  animation:headerShift 12s ease infinite;
+  color:#fff;
+  box-shadow:0 4px 24px -8px rgba(124,92,252,0.55);
+}
+@keyframes headerShift{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+.header-inner{
+  max-width:1000px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px;
+}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand-mark{
+  color:var(--purple-dark); background:#fff; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; box-shadow:0 4px 12px -2px rgba(0,0,0,0.25);
+  flex-shrink:0; font-size:1.4rem;
+}
+.brand-text{display:flex; flex-direction:column; line-height:1.25;}
+.school-name{
+  font-family:var(--font-display); font-weight:700; letter-spacing:0.02em;
+  font-size:1.05rem; text-transform:uppercase; text-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+.subject-name{font-size:0.82rem; color:#fff; opacity:0.92; font-weight:500;}
+.header-status{font-family:var(--font-mono); font-size:0.78rem; color:#fff; opacity:0.85;}
+
+/* ---------- Layout ---------- */
+main#app{max-width:1300px; margin:0 auto; padding:40px 20px 60px;}
+.view{animation:fadeUp .4s ease both;}
+@keyframes fadeUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+
+.card-surface{
+  background:var(--paper);
+  border:2px solid var(--line);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-soft);
+}
+
+/* ---------- Home / Hero ---------- */
+.hero-panel{text-align:center; max-width:680px; margin:0 auto 34px;}
+.eyebrow{
+  font-family:var(--font-mono); font-size:0.74rem; letter-spacing:0.06em;
+  text-transform:uppercase; font-weight:600;
+  background:linear-gradient(90deg, var(--purple), var(--pink));
+  color:#fff; display:inline-block;
+  padding:7px 16px; border-radius:999px; margin-bottom:18px;
+  box-shadow:var(--shadow-tight);
+}
+.hero-title{
+  font-family:var(--font-display); font-weight:700; font-size:2.4rem;
+  line-height:1.18; margin:0 0 14px; color:var(--ink);
+}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(90deg, var(--purple), var(--pink), var(--coral));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero-sub{color:var(--ink-soft); font-size:1.05rem; line-height:1.65;}
+
+.login-card{max-width:540px; margin:0 auto; padding:34px 34px 30px; position:relative; overflow:hidden;}
+.login-card::before{
+  content:""; position:absolute; top:-60px; right:-60px; width:160px; height:160px;
+  background:radial-gradient(circle, rgba(255,200,69,0.35), transparent 70%);
+  border-radius:50%;
+}
+.card-heading{
+  font-family:var(--font-display); font-size:1.5rem; margin:0 0 20px; color:var(--ink); font-weight:700;
+}
+.field-row{margin-bottom:17px; display:flex; flex-direction:column; gap:6px; position:relative;}
+.field-row label{font-size:0.86rem; font-weight:600; color:var(--purple-dark);}
+.req{color:var(--coral);}
+.opt{color:var(--ink-soft); font-weight:400;}
+.field-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 16px;}
+input[type="text"]{
+  font-family:var(--font-body); font-size:0.98rem;
+  padding:12px 14px; border-radius:var(--radius-sm);
+  border:2px solid var(--line); background:var(--cloud);
+  transition:border-color .15s, box-shadow .15s, background .15s;
+}
+input[type="text"]:focus{
+  outline:none; border-color:var(--purple);
+  box-shadow:0 0 0 4px rgba(124,92,252,0.15);
+  background:#fff;
+}
+.form-error{color:var(--coral-dark); font-weight:600; font-size:0.85rem; min-height:1.1em; margin-bottom:6px;}
+
+/* ---------- Buttons ---------- */
+.btn{
+  font-family:var(--font-body); font-weight:700; font-size:0.95rem;
+  padding:13px 24px; border-radius:999px; border:none; cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn:active{transform:translateY(0px) scale(0.98);}
+.btn-block{width:100%;}
+.btn-primary{
+  background:linear-gradient(90deg, var(--purple), var(--pink));
+  color:#fff; box-shadow:0 8px 20px -8px rgba(124,92,252,0.6);
+}
+.btn-primary:hover{filter:brightness(1.06); box-shadow:0 12px 26px -8px rgba(124,92,252,0.7);}
+.btn-primary:disabled{background:#cfc8ec; cursor:not-allowed; box-shadow:none; transform:none;}
+.btn-ghost{background:#fff; color:var(--purple-dark); border:2px solid var(--line);}
+.btn-ghost:hover{border-color:var(--purple); background:var(--cloud);}
+.btn-outline{background:#fff; color:var(--blue-dark); border:2px solid var(--blue);}
+.btn-outline:hover{background:#eaf2ff;}
+.btn-finish{
+  background:linear-gradient(90deg, var(--lime), var(--teal));
+  color:#0b3d2e; box-shadow:0 8px 20px -8px rgba(139,212,80,0.6);
+}
+.btn-finish:hover{filter:brightness(1.05);}
+
+/* ---------- Chapter selection ---------- */
+.section-heading{text-align:center; max-width:680px; margin:0 auto 30px;}
+.section-heading h2{font-family:var(--font-display); font-size:2rem; color:var(--ink); margin:10px 0 8px; font-weight:700;}
+.section-sub{color:var(--ink-soft);}
+.chapter-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+  gap:18px;
+}
+.chapter-card{
+  background:var(--paper); border:2px solid var(--line); border-radius:var(--radius-md);
+  padding:22px; cursor:pointer; text-align:left;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  box-shadow:0 6px 18px -10px rgba(36,28,61,0.18);
+  display:flex; flex-direction:column; gap:6px;
+  position:relative; overflow:hidden;
+}
+.chapter-card::after{
+  content:""; position:absolute; inset:0 0 auto 0; height:6px;
+  background:var(--accent, var(--purple));
+}
+.chapter-card:hover{
+  transform:translateY(-5px) rotate(-0.3deg);
+  box-shadow:0 20px 34px -14px rgba(36,28,61,0.28);
+  border-color:var(--accent, var(--purple));
+}
+.chapter-card .chapter-icon{
+  font-size:1.9rem; margin-bottom:4px; line-height:1;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+}
+.chapter-card .unit-tag{
+  font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-dark, var(--purple-dark));
+  letter-spacing:0.04em; text-transform:uppercase; font-weight:700;
+}
+.chapter-card .chapter-title{
+  font-family:var(--font-display); font-size:1.2rem; color:var(--ink); font-weight:700;
+}
+.chapter-card .chapter-count{font-size:0.82rem; color:var(--ink-soft); font-weight:500;}
+.chapter-card .go-arrow{
+  margin-top:auto; align-self:flex-end; color:var(--accent-dark, var(--purple-dark));
+  font-size:1.3rem; font-weight:700;
+}
+
+.chapter-card.c-purple{--accent:var(--purple); --accent-dark:var(--purple-dark);}
+.chapter-card.c-teal{--accent:var(--teal); --accent-dark:var(--teal-dark);}
+.chapter-card.c-coral{--accent:var(--coral); --accent-dark:var(--coral-dark);}
+.chapter-card.c-blue{--accent:var(--blue); --accent-dark:var(--blue-dark);}
+.chapter-card.c-pink{--accent:var(--pink); --accent-dark:var(--pink-dark);}
+.chapter-card.c-lime{--accent:var(--lime); --accent-dark:var(--lime-dark);}
+
+/* ---------- Test view ---------- */
+.test-topbar{display:flex; flex-direction:column; gap:12px; margin-bottom:26px;}
+
+.student-info-bar{
+  display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
+  background:linear-gradient(90deg, #efe9ff, #e0faf8);
+  border:2px solid var(--line); border-radius:999px;
+  padding:10px 22px; margin-bottom:22px;
+  font-family:var(--font-body); font-size:0.88rem; font-weight:700; color:var(--ink);
+}
+.student-info-bar-compact{ margin-bottom:16px; padding:8px 18px; font-size:0.82rem; }
+.sib-item{ display:inline-flex; align-items:center; gap:6px; }
+.sib-icon{ font-size:1rem; }
+.sib-sep{ color:var(--ink-soft); opacity:0.5; }
+.test-topbar-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+.btn-back-chapters{
+  flex-shrink:0; padding:9px 18px; border-radius:999px; border:2px solid var(--line);
+  background:#fff; color:var(--purple-dark); font-family:var(--font-display); font-weight:700;
+  font-size:0.85rem; cursor:pointer; transition:all .15s ease;
+}
+.btn-back-chapters:hover{ border-color:var(--purple); background:var(--cloud); transform:translateX(-2px); }
+.test-meta{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+.chip{
+  background:linear-gradient(90deg, var(--purple), var(--pink)); color:#fff; font-size:0.82rem;
+  padding:7px 16px; border-radius:999px; font-weight:700; box-shadow:var(--shadow-tight);
+}
+.qcount{font-family:var(--font-mono); color:var(--ink-soft); font-size:0.85rem; font-weight:600;}
+.progress-track{height:10px; background:var(--line); border-radius:999px; overflow:hidden;}
+.progress-fill{
+  height:100%; width:0%;
+  background:linear-gradient(90deg, var(--lime), var(--teal), var(--blue), var(--purple), var(--pink), var(--coral));
+  background-size:300% 100%;
+  transition:width .3s ease;
+  animation:rainbowMove 6s linear infinite;
+}
+@keyframes rainbowMove{0%{background-position:0% 0;} 100%{background-position:150% 0;}}
+
+.question-card{padding:32px 34px; margin-bottom:22px; position:relative;}
+.qnum{
+  font-family:var(--font-display); color:#fff; font-weight:700; margin-bottom:14px;
+  background:linear-gradient(90deg, var(--purple), var(--pink)); display:inline-block;
+  padding:5px 16px; border-radius:999px; font-size:0.95rem;
+}
+.qtext{font-family:var(--font-display); font-size:1.35rem; line-height:1.5; color:var(--ink); margin:0 0 24px; font-weight:600;}
+.options-list{display:flex; flex-direction:column; gap:12px;}
+.option-item{
+  display:flex; align-items:center; gap:14px;
+  padding:14px 18px; border:2px solid var(--line); border-radius:var(--radius-sm);
+  cursor:pointer; transition:border-color .15s, background .15s, transform .1s;
+  background:var(--cloud);
+}
+.option-item:hover{border-color:var(--purple); background:#f0ecff; transform:translateX(2px);}
+.option-item.selected{
+  border-color:var(--purple); background:linear-gradient(90deg, #efe9ff, #ffeef7);
+  box-shadow:0 4px 14px -6px rgba(124,92,252,0.35);
+}
+.option-item input{accent-color:var(--purple); width:18px; height:18px; flex-shrink:0;}
+.option-label{font-size:0.99rem; font-weight:500;}
+
+.test-nav{display:flex; justify-content:space-between; align-items:center; gap:10px;}
+
+/* ---------- Test layout with question navigator ---------- */
+.test-layout{ display:flex; gap:26px; align-items:flex-start; }
+.test-main{ flex:1 1 auto; min-width:0; max-width:1000px; }
+
+.qnav-panel{
+  width:230px; flex-shrink:0; padding:20px 18px; position:sticky; top:20px;
+}
+.qnav-title{
+  font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--ink);
+  margin-bottom:14px; text-align:center;
+}
+.qnav-grid{
+  display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; margin-bottom:16px;
+}
+.qnav-btn{
+  width:100%; aspect-ratio:1/1; border-radius:10px; border:2px solid var(--line);
+  background:var(--cloud); color:var(--ink-soft); font-family:var(--font-mono); font-weight:700;
+  font-size:0.85rem; cursor:pointer; transition:all .15s ease; display:flex; align-items:center; justify-content:center;
+}
+.qnav-btn:hover{ border-color:var(--purple); transform:translateY(-1px); }
+.qnav-btn.answered{
+  background:linear-gradient(135deg, var(--lime), var(--teal)); border-color:var(--teal-dark); color:#0b3d2e;
+}
+.qnav-btn.current{
+  border-color:var(--purple); box-shadow:0 0 0 3px rgba(124,92,252,0.28); color:var(--purple-dark); transform:scale(1.05);
+}
+.qnav-btn.current.answered{ color:#0b3d2e; }
+
+.qnav-legend{ display:flex; flex-direction:column; gap:8px; font-size:0.74rem; color:var(--ink-soft); font-weight:600; }
+.qnav-legend span{ display:flex; align-items:center; gap:8px; }
+.qnav-dot{ width:12px; height:12px; border-radius:4px; display:inline-block; flex-shrink:0; border:2px solid var(--line); }
+.dot-current{ border-color:var(--purple); box-shadow:0 0 0 2px rgba(124,92,252,0.28); background:#fff; }
+.dot-answered{ background:linear-gradient(135deg, var(--lime), var(--teal)); border-color:var(--teal-dark); }
+.dot-unanswered{ background:var(--cloud); }
+
+@media (max-width:820px){
+  .test-layout{ flex-direction:column-reverse; }
+  .qnav-panel{ width:100%; position:static; padding:16px; }
+  .qnav-grid{ grid-template-columns:repeat(8, 1fr); }
+  .qnav-legend{ flex-direction:row; flex-wrap:wrap; justify-content:center; gap:14px; }
+}
+
+/* ---------- Result view ---------- */
+.result-card{padding:36px 36px 32px; max-width:600px; margin:0 auto; position:relative; overflow:hidden;}
+.result-card::before{
+  content:""; position:absolute; top:-80px; left:-80px; width:220px; height:220px;
+  background:radial-gradient(circle, rgba(255,200,69,0.3), transparent 70%);
+  border-radius:50%;
+}
+.result-card::after{
+  content:""; position:absolute; bottom:-90px; right:-90px; width:220px; height:220px;
+  background:radial-gradient(circle, rgba(0,194,184,0.25), transparent 70%);
+  border-radius:50%;
+}
+.result-header{text-align:center; margin-bottom:22px; position:relative;}
+.result-header h2{font-family:var(--font-display); color:var(--ink); margin:0 0 4px; font-weight:700; font-size:1.7rem;}
+.result-sub{color:var(--ink-soft); font-size:0.94rem; font-weight:500;}
+.result-student{
+  display:grid; grid-template-columns:1fr 1fr; gap:12px 20px;
+  background:var(--cloud); border:2px solid var(--line); border-radius:var(--radius-sm);
+  padding:16px 18px; margin-bottom:28px; position:relative;
+}
+.result-student div{display:flex; flex-direction:column; gap:2px;}
+.result-student span{font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft); font-weight:600;}
+.result-student strong{font-size:0.95rem; color:var(--ink);}
+
+.score-ring-wrap{position:relative; width:150px; height:150px; margin:0 auto 24px;}
+.score-ring{width:150px; height:150px; transform:rotate(-90deg);}
+.ring-bg{fill:none; stroke:var(--line); stroke-width:13;}
+.ring-fg{fill:none; stroke:var(--good); stroke-width:13; stroke-linecap:round; stroke-dasharray:377; stroke-dashoffset:377; transition:stroke-dashoffset 1s ease;}
+.score-ring-label{
+  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.score-ring-label strong{font-family:var(--font-display); font-size:2rem; color:var(--ink); font-weight:700;}
+.score-ring-label span{font-family:var(--font-mono); font-size:0.85rem; color:var(--ink-soft); font-weight:700;}
+
+.result-stats{display:flex; justify-content:center; gap:14px; flex-wrap:wrap; position:relative;}
+.stat{
+  background:var(--cloud); border:2px solid var(--line); border-radius:var(--radius-sm);
+  padding:15px 24px; text-align:center; min-width:110px;
+}
+.stat strong{display:block; font-family:var(--font-display); font-size:1.5rem; color:var(--ink); font-weight:700;}
+.stat span{font-size:0.78rem; color:var(--ink-soft); font-weight:600;}
+.stat.correct{background:var(--good-bg);}
+.stat.correct strong{color:var(--good);}
+.stat.wrong{background:var(--bad-bg);}
+.stat.wrong strong{color:var(--bad);}
+
+.result-actions{
+  display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:28px;
+}
+
+.sheet-save-status{
+  text-align:center; font-size:0.85rem; font-weight:600; color:var(--ink-soft);
+  max-width:500px; margin:16px auto 0; min-height:1.2em;
+}
+.sheet-save-status.status-ok{color:var(--good);}
+.sheet-save-status.status-warn{color:var(--yellow); color:#b4890f;}
+.sheet-save-status.status-error{color:var(--bad);}
+
+/* ---------- Review view ---------- */
+.review-item{
+  background:var(--paper); border:2px solid var(--line); border-radius:var(--radius-md);
+  padding:20px 22px; margin-bottom:16px;
+  box-shadow:0 4px 14px -8px rgba(36,28,61,0.15);
+}
+.review-item .rq-head{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:10px;}
+.review-item .rq-num{
+  font-family:var(--font-mono); color:#fff; font-weight:700; font-size:0.78rem;
+  background:var(--purple); display:inline-block; padding:3px 10px; border-radius:999px; margin-bottom:6px;
+}
+.review-item .rq-text{font-weight:600; color:var(--ink); margin:2px 0 0; font-size:1.02rem;}
+.review-icon{font-size:1.2rem; flex-shrink:0;}
+.review-icon.correct{color:var(--good);}
+.review-icon.wrong{color:var(--bad);}
+.review-options{display:flex; flex-direction:column; gap:7px; margin-top:10px;}
+.review-option{
+  padding:10px 14px; border-radius:var(--radius-sm); border:2px solid var(--line); font-size:0.94rem; font-weight:500;
+}
+.review-option.correct-answer{background:var(--good-bg); border-color:var(--good); color:#0d6b3f; font-weight:700;}
+.review-option.wrong-selected{background:var(--bad-bg); border-color:var(--bad); color:#a3212f; font-weight:700;}
+.review-option.unanswered-tag{font-size:0.78rem; color:var(--bad); margin-top:6px; display:inline-block; font-weight:700;}
+
+
+/* ---------- Test Mode Selector ---------- */
+.mode-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:14px;
+  margin-bottom:26px;
+}
+.mode-card{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:6px;
+  text-align:left;
+  padding:18px 20px;
+  border-radius:var(--radius-md);
+  border:2px solid var(--line);
+  background:var(--paper);
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  font-family:var(--font-body);
+}
+.mode-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(124,92,252,0.16);
+  border-color:var(--purple);
+}
+.mode-card .mode-icon{ font-size:1.7rem; }
+.mode-card .mode-title{ font-weight:700; color:var(--ink); font-size:1.02rem; }
+.mode-card .mode-sub{ font-size:0.82rem; color:var(--ink-soft); }
+.mode-card.mode-disabled{ opacity:0.5; cursor:not-allowed; }
+.mode-card.mode-disabled:hover{ transform:none; box-shadow:none; border-color:var(--line); }
+
+.mode-panel{
+  background:var(--cloud);
+  border:2px dashed var(--line);
+  border-radius:var(--radius-md);
+  padding:20px;
+  margin-bottom:26px;
+}
+.mode-panel > label{ font-weight:600; font-size:0.85rem; color:var(--ink-soft); display:block; margin-bottom:8px; }
+.mode-panel input[type="number"]{
+  width:120px;
+  padding:10px 12px;
+  border-radius:var(--radius-sm);
+  border:2px solid var(--line);
+  font-family:var(--font-body);
+  font-size:1rem;
+  margin-right:12px;
+  vertical-align:middle;
+}
+.custom-count-row{
+  background:#fff; border:2px solid var(--line); border-radius:var(--radius-sm);
+  padding:14px 16px; margin:16px 0; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+}
+.custom-count-row label{ font-weight:700; font-size:0.88rem; color:var(--ink); }
+.custom-count-max{ font-weight:500; font-size:0.78rem; color:var(--ink-soft); }
+.custom-count-row input[type="number"]{
+  width:110px; padding:9px 12px; border-radius:var(--radius-sm); border:2px solid var(--line);
+  font-family:var(--font-body); font-size:1rem;
+}
+.custom-toolbar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.btn-sm{ padding:8px 14px; font-size:0.82rem; }
+.custom-total{ font-size:0.82rem; color:var(--ink-soft); font-weight:600; margin-left:auto; }
+.custom-chapter-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:8px;
+  max-height:320px;
+  overflow-y:auto;
+  padding:4px;
+  margin-bottom:16px;
+}
+.custom-chapter-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:var(--radius-sm);
+  border:2px solid var(--line);
+  background:var(--paper);
+  cursor:pointer;
+  font-size:0.88rem;
+}
+.custom-chapter-item:hover{ border-color:var(--purple); }
+.custom-chapter-item input[type="checkbox"]{ width:17px; height:17px; accent-color:var(--purple); flex-shrink:0; }
+.custom-chapter-item .cc-title{ flex:1; color:var(--ink); font-weight:500; }
+.custom-chapter-item .cc-count{ color:var(--ink-soft); font-size:0.78rem; font-weight:600; }
+
+
+/* ---------- Footer ---------- */
+.site-footer{
+  text-align:center; padding:24px; color:var(--ink-soft); font-size:0.82rem; font-weight:500;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:600px){
+  .hero-title{font-size:2rem;}
+  .login-card{padding:28px 22px;}
+  .field-grid{grid-template-columns:1fr;}
+  .question-card{padding:24px 20px;}
+  .result-student{grid-template-columns:1fr 1fr;}
+  .test-nav{flex-wrap:wrap;}
+  .test-nav .btn{flex:1 1 auto;}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  .site-header, .site-footer, .no-print{display:none !important;}
+  body{background:#fff;}
+  main#app{padding:0; max-width:100%;}
+  .card-surface{box-shadow:none; border:1px solid #ccc;}
+}
+
+/* ---------- Image-based question (Chemistry) ---------- */
+.qimg-wrap{
+  width:100%; max-width:100%; overflow-x:auto; border-radius:var(--radius-md);
+  background:#fffdf7; border:3px solid var(--line); margin-bottom:26px; padding:16px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.02), 0 6px 16px -10px rgba(36,28,61,0.15);
+  position:relative;
+}
+.qimg-wrap::before{
+  content:"பாடப் புத்தகக் கேள்வி"; position:absolute; top:-11px; left:18px;
+  background:linear-gradient(90deg, var(--purple), var(--pink)); color:#fff;
+  font-family:var(--font-mono); font-size:0.65rem; font-weight:700; letter-spacing:0.04em;
+  padding:3px 12px; border-radius:999px; box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+.qimg-wrap img{ display:block; width:100%; height:auto; border-radius:6px; }
+
+.letter-options{ display:flex; flex-direction:column; gap:14px; }
+.letter-btn{
+  display:flex; align-items:center; gap:16px; width:100%;
+  padding:18px 22px; border:3px solid var(--line); border-radius:var(--radius-md);
+  background:#fff; cursor:pointer; transition:all .15s ease; text-align:left;
+  box-shadow:0 3px 10px -6px rgba(36,28,61,0.15);
+}
+.letter-btn .letter-badge{
+  flex-shrink:0; width:46px; height:46px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:1.3rem; font-weight:800; color:#fff;
+  box-shadow:0 3px 8px -2px rgba(0,0,0,0.25);
+}
+.letter-btn .letter-word{ font-family:var(--font-body); font-size:1.02rem; font-weight:700; color:var(--ink-soft); }
+.letter-btn .letter-check{ margin-left:auto; font-size:1.3rem; opacity:0; transition:opacity .15s ease; }
+
+.letter-btn:nth-child(1) .letter-badge{ background:linear-gradient(135deg, var(--purple), var(--purple-dark)); }
+.letter-btn:nth-child(2) .letter-badge{ background:linear-gradient(135deg, var(--teal), var(--teal-dark)); }
+.letter-btn:nth-child(3) .letter-badge{ background:linear-gradient(135deg, var(--coral), var(--coral-dark)); }
+.letter-btn:nth-child(4) .letter-badge{ background:linear-gradient(135deg, var(--blue), var(--blue-dark)); }
+
+.letter-btn:nth-child(1):hover{ border-color:var(--purple); }
+.letter-btn:nth-child(2):hover{ border-color:var(--teal); }
+.letter-btn:nth-child(3):hover{ border-color:var(--coral); }
+.letter-btn:nth-child(4):hover{ border-color:var(--blue); }
+.letter-btn:hover{ transform:translateY(-2px) translateX(3px); box-shadow:0 8px 18px -8px rgba(36,28,61,0.28); }
+
+.letter-btn.selected{ transform:translateX(3px); box-shadow:0 8px 20px -8px rgba(124,92,252,0.4); }
+.letter-btn:nth-child(1).selected{ border-color:var(--purple); background:linear-gradient(90deg, #efe9ff, #fff); }
+.letter-btn:nth-child(2).selected{ border-color:var(--teal); background:linear-gradient(90deg, #e0faf8, #fff); }
+.letter-btn:nth-child(3).selected{ border-color:var(--coral); background:linear-gradient(90deg, #ffe9e6, #fff); }
+.letter-btn:nth-child(4).selected{ border-color:var(--blue); background:linear-gradient(90deg, #e7f1ff, #fff); }
+.letter-btn.selected .letter-word{ color:var(--ink); }
+.letter-btn.selected .letter-check{ opacity:1; }
+
+.review-qimg{
+  width:100%; border-radius:var(--radius-sm); border:2px solid var(--line); margin-bottom:12px;
+  overflow-x:auto; background:#fffdf7; padding:12px;
+}
+.review-qimg img{ display:block; width:100%; height:auto; border-radius:6px; }
+
+.review-letters{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.review-letter{
+  padding:8px 16px; border-radius:999px; border:2px solid var(--line);
+  font-family:var(--font-display); font-weight:700; font-size:0.92rem; color:var(--ink-soft);
+  background:#fff;
+}
+.review-letter.correct-answer{ background:var(--good-bg); border-color:var(--good); color:#0d6b3f; }
+.review-letter.wrong-selected{ background:var(--bad-bg); border-color:var(--bad); color:#a3212f; }
+
+.pending-note{
+  background:#FFF7E0; border:2px solid var(--yellow); color:#8a6100;
+  border-radius:var(--radius-md); padding:16px 20px; font-weight:600; font-size:0.92rem;
+  text-align:center; margin-bottom:24px; line-height:1.6;
+}
+.key-partial-note{
+  text-align:center; font-size:0.82rem; color:var(--ink-soft); font-weight:600; margin-top:-14px; margin-bottom:20px;
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">🧪</div>
+      <div class="brand-text">
+        <span class="subject-name">12ஆம் வகுப்பு வேதியியல் · தமிழ்வழி</span>
+      </div>
+    </div>
+    <div class="header-status" id="headerStatus"></div>
+  </div>
+</header>
+
+<main id="app">
+
+  <section class="view" id="view-home">
+    <div class="hero-panel">
+      <p class="eyebrow">இயல் வாரியான வினாக்கள் · படங்களுடன்</p>
+      <h1 class="hero-title">12ஆம் வகுப்பு வேதியியல் (தமிழ்வழி)</h1>
+    </div>
+
+    <form class="login-card card-surface" id="loginForm">
+      <h2 class="card-heading">மாணவர் விவரங்கள் <span style="font-size:0.7em;color:var(--ink-soft);font-weight:500;">/ Student Details</span></h2>
+      <div class="field-row">
+        <label for="studentName">மாணவர் பெயர் <span class="req">*</span> <span class="opt">/ Student Name</span></label>
+        <input type="text" id="studentName" required>
+      </div>
+      <div class="field-grid">
+        <div class="field-row">
+          <label for="registerNumber">பதிவு எண் <span class="opt">(விருப்பத்தேர்வு)</span></label>
+          <input type="text" id="registerNumber">
+        </div>
+        <div class="field-row">
+          <label for="studentClass">வகுப்பு <span class="opt">(விருப்பத்தேர்வு)</span></label>
+          <input type="text" id="studentClass" value="12">
+        </div>
+      </div>
+      <div class="form-error" id="formError"></div>
+      <button type="submit" class="btn btn-primary btn-block">தேர்வைத் தொடங்கு &rarr;</button>
+    </form>
+  </section>
+
+  <section class="view d-none" id="view-chapters">
+    <div class="student-info-bar">
+      <span class="sib-item"><span class="sib-icon">👤</span> <span id="chaptersInfoName">-</span></span>
+    </div>
+    <div class="section-heading">
+      <p class="eyebrow">வணக்கம், <span id="chapterGreetName">Student</span></p>
+      <h2>எந்த இயலை பயிற்சி செய்ய விரும்புகிறீர்கள்?</h2>
+      <p class="section-sub">ஒவ்வொரு இயலும் ஒரு தனித்தேர்வு. வினாக்கள் ஒவ்வொரு முறையும் கலைக்கப்படும்.</p>
+    </div>
+
+        <div class="mode-grid" id="modeGrid">
+          <button type="button" class="mode-card mode-mixed" id="btnModeMixed">
+            <span class="mode-icon">🎲</span>
+            <span class="mode-title">கலப்புத் தேர்வு</span>
+            <span class="mode-sub">எல்லா இயல்களிலிருந்தும் கலந்த வினாக்கள்</span>
+          </button>
+          <button type="button" class="mode-card mode-custom" id="btnModeCustom">
+            <span class="mode-icon">🧩</span>
+            <span class="mode-title">விருப்பத் தேர்வு</span>
+            <span class="mode-sub">நீங்கள் விரும்பும் இயல்களைத் தேர்ந்தெடுக்கவும்</span>
+          </button>
+          <button type="button" class="mode-card mode-weak" id="btnModeWeak">
+            <span class="mode-icon">🧠</span>
+            <span class="mode-title">பலவீன வினாக்கள்</span>
+            <span class="mode-sub"><span id="weakCount">0</span> மறுபார்வைக்கு</span>
+          </button>
+        </div>
+
+        <div class="mode-panel d-none" id="panelMixed">
+          <label for="mixedCount">எத்தனை வினாக்கள்?</label>
+          <input type="number" id="mixedCount" min="1" value="25">
+          <button type="button" class="btn btn-primary" id="btnStartMixed">கலப்புத் தேர்வைத் தொடங்கு &rarr;</button>
+        </div>
+
+        <div class="mode-panel d-none" id="panelCustom">
+          <div class="custom-toolbar">
+            <button type="button" class="btn btn-ghost btn-sm" id="btnSelectAll">அனைத்தையும் தேர்வு செய்</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="btnSelectNone">அழி</button>
+            <span class="custom-total" id="customTotalCount">0</span>
+          </div>
+          <div class="custom-chapter-list" id="customChapterList"></div>
+          <div class="custom-count-row" id="customCountRow" style="display:none;">
+            <label for="customCount">எத்தனை வினாக்கள்? <span class="custom-count-max" id="customCountMax"></span></label>
+            <input type="number" id="customCount" min="1" value="25">
+          </div>
+          <button type="button" class="btn btn-primary" id="btnStartCustom">விருப்பத் தேர்வைத் தொடங்கு &rarr;</button>
+        </div>
+
+        <div class="chapter-grid" id="chapterGrid"></div>
+  </section>
+
+  <!-- ============ TEST VIEW ============ -->
+  <section class="view d-none" id="view-test">
+    <div class="student-info-bar student-info-bar-compact">
+      <span class="sib-item"><span class="sib-icon">👤</span> <span id="testInfoName">-</span></span>
+    </div>
+    <div class="test-topbar">
+      <div class="test-topbar-row">
+        <div class="test-meta">
+          <span class="chip" id="testChapterName">Chapter</span>
+          <span class="qcount" id="testQCount">Question 1 of 20</span>
+        </div>
+        <button type="button" class="btn-back-chapters" id="btnBackToChaptersTop">&larr; இயல்களுக்குத் திரும்பு</button>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="test-layout">
+      <div class="test-main">
+        <div class="question-card card-surface">
+          <div class="qnum" id="qNumber">Q1</div>
+          <div class="qimg-wrap"><img id="qImage" src="" alt="Question"></div>
+          <div class="letter-options" id="optionsList"></div>
+        </div>
+
+        <div class="test-nav">
+          <button class="btn btn-ghost" id="btnPrev">&larr; முந்தையது</button>
+          <button class="btn btn-primary" id="btnNext">அடுத்தது &rarr;</button>
+          <button class="btn btn-finish d-none" id="btnFinish">முடிக்க ✓</button>
+        </div>
+      </div>
+
+      <aside class="qnav-panel card-surface">
+        <div class="qnav-title">வினா வரிசை</div>
+        <div class="qnav-grid" id="qNavGrid"></div>
+        <div class="qnav-legend">
+          <span><i class="qnav-dot dot-current"></i> தற்போதைய வினா</span>
+          <span><i class="qnav-dot dot-answered"></i> பதிலளிக்கப்பட்டது</span>
+          <span><i class="qnav-dot dot-unanswered"></i> பதிலளிக்கப்படவில்லை</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ RESULT VIEW ============ -->
+  <section class="view d-none" id="view-result">
+    <div class="result-card card-surface" id="printArea">
+      <div class="result-header">
+        <h2>முடிவுச் சுருக்கம்</h2>
+        <p class="result-sub" id="resultChapter">Chapter Name</p>
+      </div>
+      <div class="result-student">
+        <div><span>பெயர்</span><strong id="rsName">-</strong></div>
+        <div><span>வகுப்பு</span><strong id="rsClass">-</strong></div>
+        <div><span>பதிவு எண்</span><strong id="rsReg">-</strong></div>
+      </div>
+
+      <div class="pending-note d-none" id="pendingNote">
+        ℹ️ இந்தத் தேர்வில் உள்ள வினாக்களுக்கான <strong>விடை திறவுகோல் இன்னும் சேர்க்கப்படவில்லை</strong>.
+        உங்கள் பதில்கள் பதிவு செய்யப்பட்டுள்ளன — கீழே "விடைகளை மறுபார்வை" என்பதைக் கிளிக் செய்து உங்கள் தேர்வுகளைப் பார்க்கலாம்.
+        விடை திறவுகோல் சேர்க்கப்பட்ட பிறகு மதிப்பெண் இங்கே காட்டப்படும்.
+      </div>
+
+      <div class="score-ring-wrap" id="scoreRingWrap">
+        <svg viewBox="0 0 140 140" class="score-ring">
+          <defs>
+            <linearGradient id="scoreGradGood" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8BD450"/>
+              <stop offset="50%" stop-color="#00C2B8"/>
+              <stop offset="100%" stop-color="#7C5CFC"/>
+            </linearGradient>
+            <linearGradient id="scoreGradBad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B5E"/>
+              <stop offset="100%" stop-color="#FF4D5E"/>
+            </linearGradient>
+          </defs>
+          <circle cx="70" cy="70" r="60" class="ring-bg"/>
+          <circle cx="70" cy="70" r="60" class="ring-fg" id="ringFg"/>
+        </svg>
+        <div class="score-ring-label">
+          <strong id="scorePercent">0%</strong>
+          <span id="scoreGrade">-</span>
+        </div>
+      </div>
+
+      <p class="key-partial-note d-none" id="keyPartialNote"></p>
+
+      <div class="result-stats" id="resultStats">
+        <div class="stat"><strong id="stTotal">0</strong><span>மொத்த வினாக்கள்</span></div>
+        <div class="stat correct"><strong id="stCorrect">0</strong><span>சரி</span></div>
+        <div class="stat wrong"><strong id="stWrong">0</strong><span>தவறு</span></div>
+      </div>
+    </div>
+
+    <div class="result-actions no-print">
+      <button class="btn btn-ghost" id="btnPrint">முடிவை அச்சிடு</button>
+      <button class="btn btn-primary" id="btnReview">விடைகளை மறுபார்வை &rarr;</button>
+      <button class="btn btn-outline" id="btnRestart">மீண்டும் தேர்வு</button>
+    </div>
+  </section>
+
+  <!-- ============ REVIEW VIEW ============ -->
+  <section class="view d-none" id="view-review">
+    <div class="section-heading">
+      <p class="eyebrow">விடை மறுபார்வை</p>
+      <h2>ஒவ்வொரு வினாவும், உங்கள் தேர்வுடன்</h2>
+    </div>
+    <div id="reviewList"></div>
+    <div class="result-actions no-print">
+      <button class="btn btn-outline" id="btnBackToChapters">வேறு இயலைத் தேர்வு செய்</button>
+      <button class="btn btn-primary" id="btnRestart2">இந்த இயலை மீண்டும் தொடங்கு</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>12ஆம் வகுப்பு வேதியியல் ஒரு மதிப்பெண் வினாத்தேர்வு · தமிழ்வழி · தன்னியல்பு பயிற்சிக்காக உருவாக்கப்பட்டது</p>
+</footer>
+
+<script>
+
+const QUESTION_BANK = [{"chapter": "இயல் 1", "unit": "Chapter 1", "questions": [{"img": "c1q1.png", "answer": 1}, {"img": "c1q2.png", "answer": 2}, {"img": "c1q3.png", "answer": 2}, {"img": "c1q4.png", "answer": 1}, {"img": "c1q5.png", "answer": 0}, {"img": "c1q6.png", "answer": 3}, {"img": "c1q7.png", "answer": 2}, {"img": "c1q8.png", "answer": 3}, {"img": "c1q9.png", "answer": 1}, {"img": "c1q10.png", "answer": 2}, {"img": "c1q11.png", "answer": 1}, {"img": "c1q12.png", "answer": 2}, {"img": "c1q13.png", "answer": 0}, {"img": "c1q14.png", "answer": 0}, {"img": "c1q15.png", "answer": 2}, {"img": "c1q16.png", "answer": 2}, {"img": "c1q17.png", "answer": 1}, {"img": "c1q18.png", "answer": 3}, {"img": "c1q19.png", "answer": 3}, {"img": "c1q20.png", "answer": 1}, {"img": "c1q21.png", "answer": 1}, {"img": "c1q22.png", "answer": 2}, {"img": "c1q23.png", "answer": 1}, {"img": "c1q24.png", "answer": 1}]}, {"chapter": "இயல் 2", "unit": "Chapter 2", "questions": [{"img": "c2q1.jpg", "answer": 2}, {"img": "c2q2.jpg", "answer": 3}, {"img": "c2q3.jpg", "answer": 1}, {"img": "c2q4.jpg", "answer": 0}, {"img": "c2q5.jpg", "answer": 2}, {"img": "c2q6.jpg", "answer": 2}, {"img": "c2q7.jpg", "answer": 2}, {"img": "c2q8.jpg", "answer": 0}, {"img": "c2q9.jpg", "answer": 3}, {"img": "c2q10.jpg", "answer": 1}, {"img": "c2q11.jpg", "answer": 0}, {"img": "c2q12.jpg", "answer": 3}, {"img": "c2q13.jpg", "answer": 0}, {"img": "c2q14.jpg", "answer": 3}, {"img": "c2q15.jpg", "answer": 0}, {"img": "c2q16.jpg", "answer": 3}, {"img": "c2q17.jpg", "answer": 0}, {"img": "c2q18.jpg", "answer": 0}]}, {"chapter": "இயல் 3", "unit": "Chapter 3", "questions": [{"img": "c3q1.png", "answer": 0}, {"img": "c3q2.png", "answer": 3}, {"img": "c3q3.png", "answer": 3}, {"img": "c3q4.png", "answer": 1}, {"img": "c3q5.png", "answer": 0}, {"img": "c3q6.png", "answer": 0}, {"img": "c3q7.png", "answer": 1}, {"img": "c3q8.png", "answer": 0}, {"img": "c3q9.png", "answer": 3}, {"img": "c3q10.png", "answer": 1}, {"img": "c3q11.png", "answer": 1}, {"img": "c3q12.png", "answer": 3}, {"img": "c3q13.png", "answer": 3}, {"img": "c3q14.png", "answer": 2}, {"img": "c3q15.jpg", "answer": 0}, {"img": "c3q16.png", "answer": 3}, {"img": "c3q17.png", "answer": 3}, {"img": "c3q18.png", "answer": 2}]}, {"chapter": "இயல் 4", "unit": "Chapter 4", "questions": [{"img": "c4q1.jpg", "answer": 1}, {"img": "c4q2.jpg", "answer": 0}, {"img": "c4q3.jpg", "answer": 0}, {"img": "c4q4.jpg", "answer": 2}, {"img": "c4q5.jpg", "answer": 0}, {"img": "c4q6.jpg", "answer": 2}, {"img": "c4q7.jpg", "answer": 0}, {"img": "c4q8.jpg", "answer": 1}, {"img": "c4q9.jpg", "answer": 1}, {"img": "c4q10.jpg", "answer": 1}, {"img": "c4q11.jpg", "answer": 2}, {"img": "c4q12.jpg", "answer": 2}, {"img": "c4q13.jpg", "answer": 2}, {"img": "c4q14.jpg", "answer": 1}, {"img": "c4q15.jpg", "answer": 3}, {"img": "c4q16.jpg", "answer": 0}, {"img": "c4q17.jpg", "answer": 1}, {"img": "c4q18.jpg", "answer": 0}, {"img": "c4q19.jpg", "answer": 0}]}, {"chapter": "இயல் 5", "unit": "Chapter 5", "questions": [{"img": "c5q1.png", "answer": 3}, {"img": "c5q2.png", "answer": 1}, {"img": "c5q3.png", "answer": 2}, {"img": "c5q4.png", "answer": 3}, {"img": "c5q5.png", "answer": 3}, {"img": "c5q6.png", "answer": 3}, {"img": "c5q7.png", "answer": 2}, {"img": "c5q8.png", "answer": 1}, {"img": "c5q9.png", "answer": 0}, {"img": "c5q10.png", "answer": 1}, {"img": "c5q11.png", "answer": 3}, {"img": "c5q12.png", "answer": 0}, {"img": "c5q13.png", "answer": 2}, {"img": "c5q14.png", "answer": 0}, {"img": "c5q15.png", "answer": 3}, {"img": "c5q16.png", "answer": 2}, {"img": "c5q17.png", "answer": 3}, {"img": "c5q18.png", "answer": 2}, {"img": "c5q19.png", "answer": 2}, {"img": "c5q20.png", "answer": 3}]}, {"chapter": "இயல் 6", "unit": "Chapter 6", "questions": [{"img": "c6q1.png", "answer": 2}, {"img": "c6q2.png", "answer": 1}, {"img": "c6q3.png", "answer": 1}, {"img": "c6q4.png", "answer": 2}, {"img": "c6q5.png", "answer": 0}, {"img": "c6q6.png", "answer": 2}, {"img": "c6q7.png", "answer": 1}, {"img": "c6q8.png", "answer": 3}, {"img": "c6q9.png", "answer": 2}, {"img": "c6q10.png", "answer": 3}, {"img": "c6q11.png", "answer": 0}, {"img": "c6q12.png", "answer": 2}, {"img": "c6q13.png", "answer": 1}, {"img": "c6q14.png", "answer": 1}, {"img": "c6q15.png", "answer": 0}, {"img": "c6q16.png", "answer": 2}, {"img": "c6q17.png", "answer": 3}, {"img": "c6q18.png", "answer": 0}]}, {"chapter": "இயல் 7", "unit": "Chapter 7", "questions": [{"img": "c7q1.png", "answer": 2}, {"img": "c7q2.png", "answer": 2}, {"img": "c7q3.png", "answer": 1}, {"img": "c7q4.png", "answer": 2}, {"img": "c7q5.png", "answer": 2}, {"img": "c7q6.png", "answer": 2}, {"img": "c7q7.png", "answer": 1}, {"img": "c7q8.png", "answer": 1}, {"img": "c7q9.png", "answer": 0}, {"img": "c7q10.png", "answer": 3}, {"img": "c7q11.png", "answer": 2}, {"img": "c7q12.png", "answer": 0}, {"img": "c7q13.png", "answer": 1}, {"img": "c7q14.png", "answer": 2}, {"img": "c7q15.png", "answer": 1}, {"img": "c7q16.png", "answer": 2}, {"img": "c7q17.png", "answer": 0}, {"img": "c7q18.png", "answer": 2}, {"img": "c7q19.png", "answer": 3}, {"img": "c7q20.png", "answer": 0}, {"img": "c7q21.png", "answer": 0}, {"img": "c7q22.png", "answer": 1}, {"img": "c7q23.png", "answer": 3}, {"img": "c7q24.png", "answer": 1}, {"img": "c7q25.png", "answer": 2}]}, {"chapter": "இயல் 8", "unit": "Chapter 8", "questions": [{"img": "c8q1.jpg", "answer": 3}, {"img": "c8q2.jpg", "answer": 3}, {"img": "c8q3.jpg", "answer": 2}, {"img": "c8q4.jpg", "answer": 0}, {"img": "c8q5.jpg", "answer": 2}, {"img": "c8q6.jpg", "answer": 2}, {"img": "c8q7.jpg", "answer": 1}, {"img": "c8q8.jpg", "answer": 0}, {"img": "c8q9.jpg", "answer": 1}, {"img": "c8q10.jpg", "answer": 1}, {"img": "c8q11.jpg", "answer": 0}, {"img": "c8q12.jpg", "answer": 1}, {"img": "c8q13.jpg", "answer": 0}, {"img": "c8q14.jpg", "answer": 3}, {"img": "c8q15.jpg", "answer": 3}, {"img": "c8q16.jpg", "answer": 3}, {"img": "c8q17.jpg", "answer": 0}, {"img": "c8q18.jpg", "answer": 2}, {"img": "c8q19.jpg", "answer": 2}, {"img": "c8q20.jpg", "answer": 1}, {"img": "c8q21.jpg", "answer": 0}, {"img": "c8q22.jpg", "answer": 2}, {"img": "c8q23.jpg", "answer": 1}]}, {"chapter": "இயல் 9", "unit": "Chapter 9", "questions": [{"img": "c9q1.png", "answer": 2}, {"img": "c9q2.png", "answer": 1}, {"img": "c9q3.png", "answer": 2}, {"img": "c9q4.png", "answer": 1}, {"img": "c9q5.png", "answer": 2}, {"img": "c9q6.png", "answer": 1}, {"img": "c9q7.png", "answer": 0}, {"img": "c9q8.png", "answer": 1}, {"img": "c9q9.png", "answer": 1}, {"img": "c9q10.png", "answer": 2}, {"img": "c9q11.png", "answer": 1}, {"img": "c9q12.png", "answer": 2}, {"img": "c9q13.png", "answer": 0}, {"img": "c9q14.png", "answer": 3}, {"img": "c9q15.png", "answer": 3}, {"img": "c9q16.png", "answer": 0}, {"img": "c9q17.png", "answer": 1}, {"img": "c9q18.png", "answer": 2}, {"img": "c9q19.png", "answer": 3}, {"img": "c9q20.png", "answer": 1}, {"img": "c9q21.png", "answer": 3}, {"img": "c9q22.png", "answer": 0}, {"img": "c9q23.png", "answer": 1}, {"img": "c9q24.png", "answer": 0}, {"img": "c9q25.png", "answer": 0}]}, {"chapter": "இயல் 10", "unit": "Chapter 10", "questions": [{"img": "c10q1.png", "answer": 2}, {"img": "c10q2.png", "answer": 1}, {"img": "c10q3.png", "answer": 3}, {"img": "c10q4.png", "answer": 2}, {"img": "c10q5.png", "answer": 0}, {"img": "c10q6.png", "answer": 1}, {"img": "c10q7.png", "answer": 1}, {"img": "c10q8.png", "answer": 1}, {"img": "c10q9.png", "answer": 3}, {"img": "c10q10.png", "answer": 1}, {"img": "c10q11.png", "answer": 3}, {"img": "c10q12.png", "answer": 1}, {"img": "c10q13.png", "answer": 3}, {"img": "c10q14.png", "answer": 3}, {"img": "c10q15.png", "answer": 0}, {"img": "c10q16.png", "answer": 0}, {"img": "c10q17.png", "answer": 3}, {"img": "c10q18.png", "answer": 3}, {"img": "c10q19.png", "answer": 0}]}, {"chapter": "இயல் 11", "unit": "Chapter 11", "questions": [{"img": "c11q1.jpg", "answer": 0}, {"img": "c11q2.jpg", "answer": 2}, {"img": "c11q3.jpg", "answer": 0}, {"img": "c11q4.jpg", "answer": 2}, {"img": "c11q5.jpg", "answer": 2}, {"img": "c11q6.jpg", "answer": 1}, {"img": "c11q7.jpg", "answer": 0}, {"img": "c11q8.jpg", "answer": 2}, {"img": "c11q9.jpg", "answer": 1}, {"img": "c11q10.jpg", "answer": 0}, {"img": "c11q11.jpg", "answer": 0}, {"img": "c11q12.jpg", "answer": 3}, {"img": "c11q13.jpg", "answer": 2}, {"img": "c11q14.jpg", "answer": 3}, {"img": "c11q15.jpg", "answer": 0}, {"img": "c11q16.jpg", "answer": 2}, {"img": "c11q17.jpg", "answer": 3}, {"img": "c11q18.jpg", "answer": 2}, {"img": "c11q19.jpg", "answer": 3}, {"img": "c11q20.jpg", "answer": 0}, {"img": "c11q21.jpg", "answer": 1}, {"img": "c11q22.jpg", "answer": 1}]}, {"chapter": "இயல் 12", "unit": "Chapter 12", "questions": [{"img": "c12q1.png", "answer": 1}, {"img": "c12q2.png", "answer": 3}, {"img": "c12q3.png", "answer": 2}, {"img": "c12q4.png", "answer": 1}, {"img": "c12q5.png", "answer": 2}, {"img": "c12q6.png", "answer": 0}, {"img": "c12q7.png", "answer": 0}, {"img": "c12q8.png", "answer": 1}, {"img": "c12q9.png", "answer": 2}, {"img": "c12q10.png", "answer": 2}, {"img": "c12q11.png", "answer": 0}, {"img": "c12q12.png", "answer": 0}, {"img": "c12q13.png", "answer": 1}, {"img": "c12q14.png", "answer": 0}, {"img": "c12q15.png", "answer": 3}, {"img": "c12q16.png", "answer": 0}, {"img": "c12q17.png", "answer": 1}, {"img": "c12q18.png", "answer": 1}, {"img": "c12q19.png", "answer": 0}, {"img": "c12q20.png", "answer": 1}, {"img": "c12q21.png", "answer": 2}, {"img": "c12q22.png", "answer": 3}, {"img": "c12q23.png", "answer": 2}, {"img": "c12q24.png", "answer": 3}]}, {"chapter": "இயல் 13", "unit": "Chapter 13", "questions": [{"img": "c13q1.png", "answer": 0}, {"img": "c13q2.png", "answer": 1}, {"img": "c13q3.png", "answer": 0}, {"img": "c13q4.png", "answer": 3}, {"img": "c13q5.png", "answer": 2}, {"img": "c13q6.png", "answer": 2}, {"img": "c13q7.png", "answer": 2}, {"img": "c13q8.png", "answer": 2}, {"img": "c13q9.png", "answer": 1}, {"img": "c13q10.png", "answer": 3}, {"img": "c13q11.png", "answer": 3}, {"img": "c13q12.png", "answer": 0}, {"img": "c13q13.png", "answer": 0}, {"img": "c13q14.png", "answer": 3}, {"img": "c13q15.png", "answer": 1}, {"img": "c13q16.png", "answer": 1}, {"img": "c13q17.png", "answer": 3}, {"img": "c13q18.png", "answer": 1}, {"img": "c13q19.png", "answer": 0}, {"img": "c13q20.png", "answer": 3}, {"img": "c13q21.png", "answer": 1}, {"img": "c13q22.png", "answer": 1}, {"img": "c13q23.png", "answer": 0}, {"img": "c13q24.png", "answer": 1}, {"img": "c13q25.png", "answer": 1}]}, {"chapter": "இயல் 14", "unit": "Chapter 14", "questions": [{"img": "c14q1.jpg", "answer": 2}, {"img": "c14q2.jpg", "answer": 3}, {"img": "c14q3.jpg", "answer": 1}, {"img": "c14q4.jpg", "answer": 0}, {"img": "c14q5.jpg", "answer": 0}, {"img": "c14q6.jpg", "answer": 2}, {"img": "c14q7.jpg", "answer": 0}, {"img": "c14q8.jpg", "answer": 2}, {"img": "c14q9.jpg", "answer": 3}, {"img": "c14q10.jpg", "answer": 3}, {"img": "c14q11.jpg", "answer": 3}, {"img": "c14q12.jpg", "answer": 3}, {"img": "c14q13.jpg", "answer": 0}, {"img": "c14q14.jpg", "answer": 2}, {"img": "c14q15.jpg", "answer": 2}, {"img": "c14q16.jpg", "answer": 3}, {"img": "c14q17.jpg", "answer": 3}, {"img": "c14q18.jpg", "answer": 3}, {"img": "c14q19.jpg", "answer": 2}, {"img": "c14q20.jpg", "answer": 1}, {"img": "c14q21.jpg", "answer": 0}, {"img": "c14q22.jpg", "answer": 2}, {"img": "c14q23.jpg", "answer": 1}, {"img": "c14q24.jpg", "answer": 3}, {"img": "c14q25.jpg", "answer": 3}]}, {"chapter": "இயல் 15", "unit": "Chapter 15", "questions": [{"img": "c15q1.png", "answer": 2}, {"img": "c15q2.png", "answer": 0}, {"img": "c15q3.png", "answer": 0}, {"img": "c15q4.png", "answer": 0}, {"img": "c15q5.png", "answer": 3}, {"img": "c15q6.png", "answer": 2}, {"img": "c15q7.png", "answer": 0}, {"img": "c15q8.png", "answer": 2}, {"img": "c15q9.png", "answer": 0}, {"img": "c15q10.png", "answer": 3}, {"img": "c15q11.png", "answer": 3}, {"img": "c15q12.png", "answer": 2}, {"img": "c15q13.png", "answer": 3}, {"img": "c15q14.png", "answer": 1}, {"img": "c15q15.png", "answer": 3}]}];
+
+/* ==========================================================
+   12ஆம் வகுப்பு வேதியியல் ஒரு மதிப்பெண் வினாத்தேர்வு — செயலி தர்க்கம்
+   வினாக்களும் விருப்பங்களும் படங்களாகவே காட்டப்படும் (options: அ/ஆ/இ/ஈ)
+   ========================================================== */
+
+const SUBJECT_KEY = "chemistry";
+const MEDIUM_KEY = "tm";
+const SUBJECT_LABEL = "வேதியியல் (Chemistry)";
+const MEDIUM_LABEL = "தமிழ்வழி (Tamil Medium)";
+const WEAK_KEY = "weak_" + SUBJECT_KEY + "_" + MEDIUM_KEY;
+const LETTERS = ["அ", "ஆ", "இ", "ஈ"];
+
+/* ---------- Google Sheets logging ----------
+   Paste your Apps Script Web App URL below (ends in /exec).
+   Leave as-is to skip logging silently — the app works fine without it. */
+const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyPWX1WhHT-RLP6zFa99bpkFAlfuzFvNyjE2vwNXoEQSOX8ciLQ0MBH8if5oWKAa3Fa/exec"; // same Google Sheet used by the 12th Tamil (and other 12th) subjects
+
+function sendResultToSheet(payload){
+  if(!SHEETS_WEB_APP_URL || SHEETS_WEB_APP_URL.indexOf("PASTE_YOUR") === 0) return;
+  try{
+    fetch(SHEETS_WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).catch(function(){ /* silent — logging is best-effort */ });
+  }catch(e){ /* silent */ }
+}
+
+window.addEventListener("error", function(e){
+  showFatalError(e.message + (e.filename ? " (" + e.filename + ":" + e.lineno + ")" : ""));
+});
+
+function showFatalError(msg){
+  let banner = document.getElementById("fatalErrorBanner");
+  if(!banner){
+    banner = document.createElement("div");
+    banner.id = "fatalErrorBanner";
+    banner.style.cssText = "position:fixed;top:0;left:0;right:0;z-index:9999;background:#ffdcdc;color:#7a1010;padding:14px 18px;font:600 14px system-ui,sans-serif;border-bottom:3px solid #ff4d5e;";
+    document.body.prepend(banner);
+  }
+  banner.textContent = "⚠ Something went wrong loading the test: " + msg;
+}
+
+(function(){
+  "use strict";
+
+  try{
+
+  if(typeof QUESTION_BANK === "undefined" || !Array.isArray(QUESTION_BANK) || QUESTION_BANK.length === 0){
+    showFatalError("Question bank data did not load. Please re-download the file and open it directly in your browser.");
+    return;
+  }
+
+  // ---------- State ----------
+  const state = {
+    student: { name:"", reg:"", cls:"" },
+    chapterIndex: null,
+    testType: "chapter",
+    testLabel: "",
+    testMeta: {},
+    questions: [],
+    currentQ: 0,
+    answers: []
+  };
+
+  // ---------- Utility ----------
+  function shuffle(arr){
+    const a = arr.slice();
+    for(let i = a.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function el(id){ return document.getElementById(id); }
+
+  // Prefill name / class if passed in from the main practice portal
+  // (mcq_practice_html.html) as URL query params, e.g. ?name=..&class=..
+  (function prefillFromQuery(){
+    try{
+      const params = new URLSearchParams(window.location.search);
+      const qName = params.get("name");
+      const qClass = params.get("class");
+      if(qName) el("studentName").value = qName;
+      if(qClass) el("studentClass").value = qClass;
+    }catch(e){ /* ignore */ }
+  })();
+
+  function showView(id){
+    document.querySelectorAll(".view").forEach(v => v.classList.add("d-none"));
+    el(id).classList.remove("d-none");
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  // ---------- Home / Login ----------
+  el("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = el("studentName").value.trim();
+    const reg = el("registerNumber").value.trim();
+    const cls = el("studentClass").value.trim();
+
+    if(!name){
+      el("formError").textContent = "மாணவர் பெயர் அவசியம்.";
+      return;
+    }
+    el("formError").textContent = "";
+
+    state.student = { name, reg, cls };
+    el("chapterGreetName").textContent = name;
+    el("chaptersInfoName").textContent = name;
+    el("testInfoName").textContent = name;
+
+    buildChapterGrid();
+    showView("view-chapters");
+  });
+
+  // ---------- Chapter Selection ----------
+  const CHAPTER_ICONS = ["⚗️","🧪","🔬","⚛️","🧫","💧","🔥","🧴","🧊","🌡️","🧬","☢️","💎","🪨","🧯","🧵","🌿","🩸","🧠","🧲","🔋","🌍","🎯"];
+  const CHAPTER_COLORS = ["c-purple","c-teal","c-coral","c-blue","c-pink","c-lime"];
+
+  function buildChapterGrid(){
+    const grid = el("chapterGrid");
+    grid.innerHTML = "";
+    QUESTION_BANK.forEach((ch, idx) => {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "chapter-card " + CHAPTER_COLORS[idx % CHAPTER_COLORS.length];
+      card.innerHTML = `
+        <span class="chapter-icon">${CHAPTER_ICONS[idx % CHAPTER_ICONS.length]}</span>
+        <span class="unit-tag">${ch.unit}</span>
+        <span class="chapter-title">${ch.chapter}</span>
+        <span class="chapter-count">${ch.questions.length} வினாக்கள்</span>
+        <span class="go-arrow">&rarr;</span>
+      `;
+      card.addEventListener("click", () => startTest(idx));
+      grid.appendChild(card);
+    });
+    refreshWeakBadge();
+  }
+
+  // ---------- Test Flow ----------
+  function startTest(chapterIndex){
+    const chapter = QUESTION_BANK[chapterIndex];
+    const withOrigin = chapter.questions.map((q, qi) => ({ img: q.img, answer: q.answer, _ch: chapterIndex, _qi: qi }));
+    beginTest(withOrigin, chapter.chapter, "chapter", { chapterIndex: chapterIndex });
+  }
+
+  // ---------- Weak Question Tracking ----------
+  function loadWeakMap(){
+    try{ return JSON.parse(localStorage.getItem(WEAK_KEY) || "{}"); }catch(e){ return {}; }
+  }
+  function saveWeakMap(map){
+    try{ localStorage.setItem(WEAK_KEY, JSON.stringify(map)); }catch(e){}
+  }
+  function refreshWeakBadge(){
+    const map = loadWeakMap();
+    const count = Object.keys(map).length;
+    const badgeEl = el("weakCount");
+    if(badgeEl) badgeEl.textContent = count;
+    const cardEl = el("btnModeWeak");
+    if(cardEl) cardEl.classList.toggle("mode-disabled", count === 0);
+  }
+  function updateWeakFromResult(){
+    const map = loadWeakMap();
+    state.questions.forEach((q, i) => {
+      if(q._ch === undefined || q._ch === null || q._qi === undefined) return;
+      if(q.answer === null || q.answer === undefined) return; // no key yet, skip tracking
+      const key = q._ch + ":" + q._qi;
+      const isCorrect = state.answers[i] === q.answer;
+      if(isCorrect){
+        delete map[key];
+      } else {
+        const orig = QUESTION_BANK[q._ch].questions[q._qi];
+        map[key] = { ch: q._ch, qi: q._qi, img: orig.img, answer: orig.answer };
+      }
+    });
+    saveWeakMap(map);
+    refreshWeakBadge();
+  }
+
+  // ---------- Mixed / Custom / Weak Test Builders ----------
+  function getAllQuestionsWithOrigin(chapterIdxs){
+    const idxs = (chapterIdxs && chapterIdxs.length) ? chapterIdxs : QUESTION_BANK.map((_, i) => i);
+    const list = [];
+    idxs.forEach(ci => {
+      QUESTION_BANK[ci].questions.forEach((q, qi) => {
+        list.push({ img: q.img, answer: q.answer, _ch: ci, _qi: qi });
+      });
+    });
+    return list;
+  }
+
+  function beginTest(rawQuestions, label, testType, meta){
+    state.testType = testType;
+    state.testLabel = label;
+    state.testMeta = meta || {};
+    state.chapterIndex = (meta && typeof meta.chapterIndex === "number") ? meta.chapterIndex : null;
+
+    // Only question order is shuffled — options stay fixed since they're baked into each image.
+    const shuffledQuestions = shuffle(rawQuestions);
+
+    state.questions = shuffledQuestions;
+    state.answers = new Array(shuffledQuestions.length).fill(null);
+    state.currentQ = 0;
+
+    el("testChapterName").textContent = label;
+    buildQuestionNav();
+    renderQuestion();
+    showView("view-test");
+  }
+
+  // ---------- Question Navigator ----------
+  function buildQuestionNav(){
+    const grid = el("qNavGrid");
+    grid.innerHTML = "";
+    state.questions.forEach((q, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "qnav-btn";
+      btn.textContent = i + 1;
+      btn.addEventListener("click", () => {
+        state.currentQ = i;
+        renderQuestion();
+      });
+      grid.appendChild(btn);
+    });
+    updateQuestionNav();
+  }
+
+  function updateQuestionNav(){
+    const grid = el("qNavGrid");
+    if(!grid) return;
+    Array.from(grid.children).forEach((btn, i) => {
+      btn.classList.toggle("answered", state.answers[i] !== null && state.answers[i] !== undefined);
+      btn.classList.toggle("current", i === state.currentQ);
+    });
+  }
+
+  function startMixedTest(count){
+    const all = getAllQuestionsWithOrigin();
+    const n = Math.max(1, Math.min(count || 25, all.length));
+    const picked = shuffle(all).slice(0, n);
+    const label = "கலப்புத் தேர்வு · " + n + " வினாக்கள்";
+    beginTest(picked, label, "mixed", { count: n });
+  }
+
+  function startCustomTest(chapterIdxs, count){
+    if(!chapterIdxs || !chapterIdxs.length){
+      alert("தயவுசெய்து குறைந்தது ஒரு இயலையாவது தேர்ந்தெடுக்கவும்.");
+      return;
+    }
+    const all = getAllQuestionsWithOrigin(chapterIdxs);
+    const n = Math.max(1, Math.min(count || all.length, all.length));
+    const picked = shuffle(all).slice(0, n);
+    const label = "விருப்பத் தேர்வு · " + chapterIdxs.length + " இயல்கள் · " + n + " வினாக்கள்";
+    beginTest(picked, label, "custom", { chapterIdxs: chapterIdxs, count: n });
+  }
+
+  function startWeakTest(){
+    const map = loadWeakMap();
+    const keys = Object.keys(map);
+    if(!keys.length){
+      alert("இன்னும் பலவீன வினாக்கள் இல்லை. சில தேர்வுகளை எழுதுங்கள் — தவறான விடைகள் இங்கே மறுபார்வைக்காகத் தோன்றும்.");
+      return;
+    }
+    const list = keys.map(k => {
+      const w = map[k];
+      return { img: w.img, answer: w.answer, _ch: w.ch, _qi: w.qi };
+    });
+    const label = "பலவீன வினாக்கள் மறுபார்வை · " + list.length + " வினாக்கள்";
+    beginTest(list, label, "weak", {});
+  }
+
+  function restartCurrentTest(){
+    if(state.testType === "mixed") startMixedTest(state.testMeta.count);
+    else if(state.testType === "custom") startCustomTest(state.testMeta.chapterIdxs, state.testMeta.count);
+    else if(state.testType === "weak") startWeakTest();
+    else startTest(state.chapterIndex);
+  }
+
+  // ---------- Test Mode UI ----------
+  function togglePanel(id){
+    ["panelMixed","panelCustom"].forEach(p => {
+      if(p === id) el(p).classList.toggle("d-none");
+      else el(p).classList.add("d-none");
+    });
+  }
+
+  function buildCustomChapterList(){
+    const container = el("customChapterList");
+    container.innerHTML = "";
+    QUESTION_BANK.forEach((ch, idx) => {
+      const row = document.createElement("label");
+      row.className = "custom-chapter-item";
+      row.innerHTML = `
+        <input type="checkbox" class="custom-chk" data-idx="${idx}">
+        <span class="cc-title">${ch.chapter}</span>
+        <span class="cc-count">${ch.questions.length}</span>
+      `;
+      container.appendChild(row);
+    });
+    container.querySelectorAll(".custom-chk").forEach(chk => {
+      chk.addEventListener("change", updateCustomTotal);
+    });
+    updateCustomTotal();
+  }
+
+  function updateCustomTotal(){
+    const checked = Array.from(el("customChapterList").querySelectorAll(".custom-chk:checked"));
+    const totalQ = checked.reduce((sum, chk) => sum + QUESTION_BANK[+chk.dataset.idx].questions.length, 0);
+    el("customTotalCount").textContent = checked.length + " இயல்கள் · " + totalQ + " வினாக்கள் தேர்ந்தெடுக்கப்பட்டன";
+
+    const countRow = el("customCountRow");
+    const countInput = el("customCount");
+    if(totalQ > 0){
+      countRow.style.display = "flex";
+      countInput.max = totalQ;
+      if(!countInput.value || +countInput.value > totalQ){
+        countInput.value = totalQ;
+      }
+      el("customCountMax").textContent = "(அதிகபட்சம் " + totalQ + ")";
+    } else {
+      countRow.style.display = "none";
+    }
+  }
+
+  el("btnModeMixed").addEventListener("click", () => {
+    const totalQ = QUESTION_BANK.reduce((s, c) => s + c.questions.length, 0);
+    const input = el("mixedCount");
+    input.max = totalQ;
+    if(!input.value || +input.value > totalQ) input.value = Math.min(25, totalQ);
+    togglePanel("panelMixed");
+  });
+  el("btnModeCustom").addEventListener("click", () => {
+    buildCustomChapterList();
+    togglePanel("panelCustom");
+  });
+  el("btnModeWeak").addEventListener("click", () => startWeakTest());
+  el("btnSelectAll").addEventListener("click", () => {
+    el("customChapterList").querySelectorAll(".custom-chk").forEach(c => c.checked = true);
+    updateCustomTotal();
+  });
+  el("btnSelectNone").addEventListener("click", () => {
+    el("customChapterList").querySelectorAll(".custom-chk").forEach(c => c.checked = false);
+    updateCustomTotal();
+  });
+  el("btnStartCustom").addEventListener("click", () => {
+    const idxs = Array.from(el("customChapterList").querySelectorAll(".custom-chk:checked")).map(c => +c.dataset.idx);
+    const countVal = parseInt(el("customCount").value, 10);
+    startCustomTest(idxs, countVal);
+  });
+  el("btnStartMixed").addEventListener("click", () => {
+    const n = parseInt(el("mixedCount").value, 10) || 25;
+    startMixedTest(n);
+  });
+
+  function renderQuestion(){
+    const total = state.questions.length;
+    const idx = state.currentQ;
+    const q = state.questions[idx];
+
+    el("testQCount").textContent = `Question ${idx + 1} of ${total}`;
+    el("progressFill").style.width = `${((idx + 1) / total) * 100}%`;
+    el("qNumber").textContent = `Q${idx + 1}`;
+    el("qImage").src = q.img;
+
+    const list = el("optionsList");
+    list.innerHTML = "";
+    LETTERS.forEach((letter, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "letter-btn" + (state.answers[idx] === i ? " selected" : "");
+      btn.innerHTML = `
+        <span class="letter-badge">${letter}</span>
+        <span class="letter-word">விடை ${letter}</span>
+        <span class="letter-check">&#9989;</span>
+      `;
+      btn.addEventListener("click", () => {
+        state.answers[idx] = i;
+        renderQuestion();
+      });
+      list.appendChild(btn);
+    });
+
+    el("btnPrev").disabled = idx === 0;
+    el("btnPrev").style.visibility = idx === 0 ? "hidden" : "visible";
+
+    const isLast = idx === total - 1;
+    el("btnNext").classList.toggle("d-none", isLast);
+    el("btnFinish").classList.toggle("d-none", !isLast);
+
+    updateQuestionNav();
+  }
+
+  el("btnPrev").addEventListener("click", () => {
+    if(state.currentQ > 0){ state.currentQ--; renderQuestion(); }
+  });
+  el("btnNext").addEventListener("click", () => {
+    if(state.currentQ < state.questions.length - 1){ state.currentQ++; renderQuestion(); }
+  });
+  el("btnFinish").addEventListener("click", () => {
+    const unanswered = state.answers.filter(a => a === null).length;
+    let msg = "இப்போது பதில்களைச் சமர்ப்பிக்கவா?";
+    if(unanswered > 0){
+      msg = `உங்களுக்கு ${unanswered} வினாக்களுக்குப் பதில் அளிக்கப்படவில்லை. இருப்பினும் சமர்ப்பிக்கவா?`;
+    }
+    if(confirm(msg)){
+      finishTest();
+    }
+  });
+
+  // ---------- Result ----------
+  function finishTest(){
+    const total = state.questions.length;
+    const keyedQuestions = state.questions.filter(q => q.answer !== null && q.answer !== undefined);
+    const keyedCount = keyedQuestions.length;
+
+    let correct = 0;
+    state.questions.forEach((q, i) => {
+      if(q.answer !== null && q.answer !== undefined && state.answers[i] === q.answer) correct++;
+    });
+
+    const chapterName = state.testLabel;
+    el("resultChapter").textContent = chapterName;
+    el("rsName").textContent = state.student.name;
+    el("rsClass").textContent = state.student.cls || "-";
+    el("rsReg").textContent = state.student.reg || "-";
+
+    const pendingNote = el("pendingNote");
+    const ringWrap = el("scoreRingWrap");
+    const statsWrap = el("resultStats");
+    const partialNote = el("keyPartialNote");
+
+    if(keyedCount === 0){
+      // No answer key at all for this test yet
+      pendingNote.classList.remove("d-none");
+      ringWrap.classList.add("d-none");
+      statsWrap.classList.add("d-none");
+      partialNote.classList.add("d-none");
+    } else {
+      pendingNote.classList.add("d-none");
+      ringWrap.classList.remove("d-none");
+      statsWrap.classList.remove("d-none");
+
+      const wrong = keyedCount - correct;
+      const pct = Math.round((correct / keyedCount) * 100);
+      const grade = gradeFor(pct);
+
+      el("stTotal").textContent = keyedCount;
+      el("stCorrect").textContent = correct;
+      el("stWrong").textContent = wrong;
+      el("scorePercent").textContent = `${pct}%`;
+      el("scoreGrade").textContent = `Grade ${grade}`;
+
+      const circumference = 377;
+      const offset = circumference - (circumference * pct / 100);
+      const ring = el("ringFg");
+      ring.style.strokeDashoffset = circumference;
+      ring.style.stroke = pct >= 40 ? "url(#scoreGradGood)" : "url(#scoreGradBad)";
+      requestAnimationFrame(() => { ring.style.strokeDashoffset = offset; });
+
+      if(keyedCount < total){
+        partialNote.textContent = `குறிப்பு: ${total} வினாக்களில் ${keyedCount} வினாக்களுக்கு மட்டுமே விடை திறவுகோல் உள்ளது — மதிப்பெண் அவற்றின் அடிப்படையில் கணக்கிடப்பட்டது.`;
+        partialNote.classList.remove("d-none");
+      } else {
+        partialNote.classList.add("d-none");
+      }
+    }
+
+    updateWeakFromResult();
+
+    // Log this attempt to the connected Google Sheet (best-effort, silent if not configured)
+    const now = new Date();
+    sendResultToSheet({
+      date: now.toLocaleDateString("en-GB"),
+      time: now.toLocaleTimeString("en-GB"),
+      studentName: state.student.name,
+      class: state.student.cls || "",
+      registerNumber: state.student.reg || "",
+      subject: SUBJECT_LABEL,
+      medium: MEDIUM_LABEL,
+      testType: state.testType,
+      testLabel: state.testLabel,
+      totalQuestions: total,
+      keyedQuestions: keyedCount,
+      correct: correct,
+      wrong: keyedCount - correct,
+      percentage: keyedCount > 0 ? Math.round((correct / keyedCount) * 100) : ""
+    });
+
+    showView("view-result");
+  }
+
+  function gradeFor(pct){
+    if(pct >= 90) return "A+";
+    if(pct >= 80) return "A";
+    if(pct >= 70) return "B+";
+    if(pct >= 60) return "B";
+    if(pct >= 50) return "C";
+    if(pct >= 35) return "D";
+    return "F";
+  }
+
+  el("btnPrint").addEventListener("click", () => window.print());
+  el("btnRestart").addEventListener("click", () => restartCurrentTest());
+  el("btnRestart2").addEventListener("click", () => restartCurrentTest());
+  el("btnBackToChapters").addEventListener("click", () => showView("view-chapters"));
+  el("btnBackToChaptersTop").addEventListener("click", () => {
+    const answered = state.answers.filter(a => a !== null && a !== undefined).length;
+    if(answered > 0 && confirm("இந்தத் தேர்வை விட்டு வெளியேறவா? உங்கள் முன்னேற்றம் சேமிக்கப்படாது.")){
+      showView("view-chapters");
+    } else if(answered === 0){
+      showView("view-chapters");
+    }
+  });
+
+  // ---------- Review ----------
+  el("btnReview").addEventListener("click", () => {
+    buildReview();
+    showView("view-review");
+  });
+
+  function buildReview(){
+    const container = el("reviewList");
+    container.innerHTML = "";
+
+    state.questions.forEach((q, idx) => {
+      const selected = state.answers[idx];
+      const hasKey = q.answer !== null && q.answer !== undefined;
+      const isCorrect = hasKey && selected === q.answer;
+
+      const item = document.createElement("div");
+      item.className = "review-item";
+
+      let lettersHtml = "";
+      LETTERS.forEach((letter, i) => {
+        let cls = "review-letter";
+        if(hasKey && i === q.answer) cls += " correct-answer";
+        else if(i === selected && (!hasKey || i !== q.answer)) cls += " wrong-selected";
+        lettersHtml += `<span class="${cls}">${letter}${i === selected ? " (உங்கள் தேர்வு)" : ""}</span>`;
+      });
+
+      item.innerHTML = `
+        <div class="rq-head">
+          <div style="flex:1;">
+            <div class="rq-num">Question ${idx + 1}</div>
+          </div>
+          ${hasKey ? `<span class="review-icon ${isCorrect ? "correct" : "wrong"}">${isCorrect ? "&#9989;" : "&#10060;"}</span>` : ""}
+        </div>
+        <div class="review-qimg"><img src="${q.img}" alt="Question ${idx+1}"></div>
+        <div class="review-letters">${lettersHtml}</div>
+        ${selected === null ? '<span class="unanswered-tag">பதில் அளிக்கப்படவில்லை</span>' : ""}
+        ${!hasKey ? '<div class="key-partial-note" style="margin-top:8px;">விடை திறவுகோல் இன்னும் சேர்க்கப்படவில்லை</div>' : ""}
+      `;
+      container.appendChild(item);
+    });
+  }
+
+  } catch(err){
+    showFatalError(err.message);
+  }
+
+})();
+
+</script>
+</body>
+</html>
