@@ -1,0 +1,15 @@
+{
+  "name": "12mcq",
+  "version": "1.0.0",
+  "description": "Class 12 One Mark Practice Quiz Application",
+  "scripts": {
+    "dev": "echo 'This is a static HTML project. Open index.html in your browser.'",
+    "build": "echo 'No build step required for static HTML.'"
+  },
+  "keywords": ["quiz", "education", "class-12"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}
