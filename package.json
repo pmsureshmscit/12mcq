@@ -1,0 +1,13 @@
+{
+  "name": "12mcq",
+  "version": "1.0.0",
+  "description": "Class 12 One Mark Practice Quiz",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static HTML site - no build required'",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}
