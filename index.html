@@ -243,10 +243,52 @@
     .subj-card{padding:15px 13px;}
     .subj-name{font-size:14px;}
   }
+
+  /* ===== Teacher results button + password modal ===== */
+  .results-fab{
+    position:fixed; top:14px; right:14px; z-index:200;
+    display:flex; align-items:center; gap:7px;
+    background:var(--ink); border:1.5px solid var(--ink); border-radius:14px;
+    padding:9px 14px 9px 11px; box-shadow:var(--shadow); cursor:pointer;
+    color:#fff; font-weight:700; font-size:13px; font-family:inherit;
+  }
+  .results-fab svg{width:18px;height:18px;flex-shrink:0;color:var(--amber);}
+  .results-fab:hover{background:var(--ink-2);}
+  .results-fab:active{transform:scale(.96);}
+  .results-fab .res-label{white-space:nowrap;}
+  @media(max-width:600px){
+    .results-fab{top:10px; right:10px; padding:8px 10px; border-radius:12px; font-size:12px;}
+    .results-fab .res-label{font-size:12px;}
+  }
+  .pw-overlay{position:fixed;inset:0;background:rgba(36,27,78,.55);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;}
+  .pw-overlay.show{display:flex;}
+  .pw-box{background:var(--paper);border-radius:20px;padding:28px 26px;width:100%;max-width:380px;box-shadow:var(--shadow);animation:fadeIn .25s ease;}
+  .pw-box h3{margin:0 0 4px;font-family:"Poppins","Noto Sans Tamil",sans-serif;font-size:18px;color:var(--ink);}
+  .pw-box p{margin:0 0 16px;color:var(--muted);font-size:13px;}
+  .pw-box input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;}
+  .pw-box input:focus{outline:none;border-color:var(--teal);}
+  .pw-err{color:#DC2626;font-size:12.5px;font-weight:600;margin-top:8px;min-height:18px;}
+  .pw-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px;}
 </style>
 </head>
 <body>
 
+<button class="results-fab" onclick="openResultsLogin()" title="ஆசிரியர் பகுதி / Teacher">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+  <span class="res-label">Results / முடிவுகள்</span>
+</button>
+<div class="pw-overlay" id="pw-overlay" onclick="if(event.target===this)closeResultsLogin()">
+  <div class="pw-box">
+    <h3>ஆசிரியர் பகுதி / Teacher Login</h3>
+    <p>கடவுச்சொல்லை உள்ளிடவும் / Enter password to view results</p>
+    <input type="password" id="pw-input" placeholder="Password / கடவுச்சொல்" autocomplete="off" onkeydown="if(event.key==='Enter')submitResultsLogin()">
+    <div class="pw-err" id="pw-err"></div>
+    <div class="pw-actions">
+      <button class="btn-ghost" onclick="closeResultsLogin()">ரத்து / Cancel</button>
+      <button class="btn-dark" onclick="submitResultsLogin()">திற / Open</button>
+    </div>
+  </div>
+</div>
 <button class="home-fab" onclick="goHome()" title="முகப்புப் பக்கம்">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
   <span class="home-label">முகப்பு</span>
@@ -991,7 +1033,7 @@ function finishQuiz(){
   document.getElementById('result-retry-btn').textContent = T('retry');
   document.getElementById('result-other-btn').textContent = T('otherChapter');
   document.getElementById('result-home-btn').textContent = T('goHomeLabel');
-  document.getElementById('sync-tag').textContent = T('recorded');
+  saveResultToSheet(score, total, pct);
 
   document.getElementById('review-heading').textContent = T('reviewHeading');
   renderReviewList();
@@ -1032,7 +1074,85 @@ function retryQuiz(){
   showScreen('screen-quiz',4);
 }
 
+
+/* ============ RESULTS -> GOOGLE SHEET ============ */
+const RESULTS_CONFIG = {
+  WEBAPP_URL: 'https://script.google.com/macros/s/AKfycbzqPE2BGoCRK42aofWqEqQl3sIsnhCK9Dh503JoBlKEYx8LQz4pIhuXSbJAtmPGlNPn/exec',   // Apps Script "Web app" URL (ends with /exec)
+  SHEET_URL:  'https://docs.google.com/spreadsheets/d/1NJvq9vk9HF4Up_6wGshIEK9lZRgmKjzuaet1zp9yF4Y/edit',          // Google Sheet link opened for the teacher
+  PASSWORD:   'teacher'
+};
+const SHEET_TABS = {
+  ta12:'Tamil', en12:'English',
+  bb_ta:'Bio-Botany TM', bb_en:'Bio-Botany EM',
+  bz_ta:'Bio-Zoology TM', bz_en:'Bio-Zoology EM',
+  hist_ta:'History TM', hist_en:'History EM',
+  eco_ta:'Economics TM', eco_en:'Economics EM',
+  com_ta:'Commerce TM', com_en:'Commerce EM',
+  acc_ta:'Accountancy TM', acc_en:'Accountancy EM',
+  emp_ta:'Employability Skills TM'
+};
+const PENDING_KEY = 'pending_sheet_results';
+function resultsConfigured(){ return RESULTS_CONFIG.WEBAPP_URL.indexOf('http')===0; }
+function loadPending(){ try{ return JSON.parse(localStorage.getItem(PENDING_KEY)||'[]'); }catch(e){ return []; } }
+function savePending(a){ try{ localStorage.setItem(PENDING_KEY, JSON.stringify(a)); }catch(e){} }
+function postResult(rec){
+  return fetch(RESULTS_CONFIG.WEBAPP_URL, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body: JSON.stringify(rec)
+  });
+}
+function flushPendingResults(){
+  if(!resultsConfigured()) return;
+  const list = loadPending();
+  if(!list.length) return;
+  savePending([]);
+  list.forEach(rec=>{ postResult(rec).catch(()=>{ const p=loadPending(); p.push(rec); savePending(p); }); });
+}
+function saveResultToSheet(score, total, pct){
+  const tag = document.getElementById('sync-tag');
+  if(!resultsConfigured()){ tag.textContent = '● Google Sheet not connected yet'; return; }
+  const answered = state.answers.filter(a=>a!==null).length;
+  const rec = {
+    timestamp: new Date().toISOString(),
+    sheet: SHEET_TABS[state.subject.id] || (state.subject.sub + ' ' + state.subject.name),
+    name: state.name, school: state.school, group: state.group,
+    subject: state.subject.name + ' (' + state.subject.sub + ')',
+    testType: state.testType,
+    score: score, total: total, percent: pct,
+    unanswered: total - answered
+  };
+  tag.textContent = '● சேமிக்கப்படுகிறது… / Saving…';
+  postResult(rec).then(()=>{
+    tag.textContent = '● ' + T('recorded').replace(/^[^A-Za-z\u0B80-\u0BFF]+/,'');
+  }).catch(()=>{
+    const p = loadPending(); p.push(rec); savePending(p);
+    tag.textContent = '● இணைய இணைப்பு இல்லை – பின்னர் சேமிக்கப்படும் / Offline – will save later';
+  });
+}
+
+/* ============ TEACHER LOGIN ============ */
+function openResultsLogin(){
+  document.getElementById('pw-input').value = '';
+  document.getElementById('pw-err').textContent = '';
+  document.getElementById('pw-overlay').classList.add('show');
+  setTimeout(()=>document.getElementById('pw-input').focus(), 50);
+}
+function closeResultsLogin(){ document.getElementById('pw-overlay').classList.remove('show'); }
+function submitResultsLogin(){
+  const v = document.getElementById('pw-input').value;
+  if(v === RESULTS_CONFIG.PASSWORD){
+    closeResultsLogin();
+    if(RESULTS_CONFIG.SHEET_URL.indexOf('http')!==0){ alert('Google Sheet link is not set yet.'); return; }
+    window.open(RESULTS_CONFIG.SHEET_URL, '_blank');
+  } else {
+    document.getElementById('pw-err').textContent = 'தவறான கடவுச்சொல் / Wrong password';
+  }
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeResultsLogin(); });
+
 /* ============ INIT ============ */
+flushPendingResults();
 renderSubjectGrid();
 </script>
 </body>
