@@ -642,6 +642,10 @@ input[type="text"]:focus{
         <label for="studentName">மாணவர் பெயர் <span class="req">*</span> <span class="opt">/ Student Name</span></label>
         <input type="text" id="studentName" required>
       </div>
+      <div class="field-row">
+        <label for="studentSchool">பள்ளியின் பெயர் <span class="req">*</span> <span class="opt">/ School Name</span></label>
+        <input type="text" id="studentSchool" required>
+      </div>
       <div class="field-grid">
         <div class="field-row">
           <label for="registerNumber">பதிவு எண் <span class="opt">(விருப்பத்தேர்வு)</span></label>
@@ -838,6 +842,7 @@ const QUESTION_BANK = [{"chapter": "இயல் 1", "unit": "Chapter 1", "quest
    ========================================================== */
 
 const SUBJECT_KEY = "physics";
+const SHEET_TAB = "Physics TM";   // must match the tab name in the Google Sheet
 const MEDIUM_KEY = "tm";
 const SUBJECT_LABEL = "இயற்பியல் (Physics)";
 const MEDIUM_LABEL = "தமிழ்வழி (Tamil Medium)";
@@ -847,7 +852,7 @@ const LETTERS = ["a", "b", "c", "d"];
 /* ---------- Google Sheets logging ----------
    Paste your Apps Script Web App URL below (ends in /exec).
    Leave as-is to skip logging silently — the app works fine without it. */
-const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyPWX1WhHT-RLP6zFa99bpkFAlfuzFvNyjE2vwNXoEQSOX8ciLQ0MBH8if5oWKAa3Fa/exec"; // same Google Sheet used by the 12th Tamil (and other 12th) subjects
+const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzqPE2BGoCRK42aofWqEqQl3sIsnhCK9Dh503JoBlKEYx8LQz4pIhuXSbJAtmPGlNPn/exec"; // same Google Sheet used by the 12th Tamil (and other 12th) subjects
 
 function sendResultToSheet(payload){
   if(!SHEETS_WEB_APP_URL || SHEETS_WEB_APP_URL.indexOf("PASTE_YOUR") === 0) return;
@@ -919,6 +924,8 @@ function showFatalError(msg){
       const qClass = params.get("class");
       if(qName) el("studentName").value = qName;
       if(qClass) el("studentClass").value = qClass;
+      const qSchool = params.get("school");
+      if(qSchool) el("studentSchool").value = qSchool;
     }catch(e){ /* ignore */ }
   })();
 
@@ -934,14 +941,19 @@ function showFatalError(msg){
     const name = el("studentName").value.trim();
     const reg = el("registerNumber").value.trim();
     const cls = el("studentClass").value.trim();
+    const school = el("studentSchool").value.trim();
 
     if(!name){
       el("formError").textContent = "மாணவர் பெயர் அவசியம்.";
       return;
     }
+    if(!school){
+      el("formError").textContent = "பள்ளியின் பெயரை உள்ளிடவும் / Please enter school name.";
+      return;
+    }
     el("formError").textContent = "";
 
-    state.student = { name, reg, cls };
+    state.student = { name, reg, cls, school };
     el("chapterGreetName").textContent = name;
     el("chaptersInfoName").textContent = name;
     el("testInfoName").textContent = name;
@@ -1322,6 +1334,11 @@ function showFatalError(msg){
       percentage: keyedCount > 0 ? Math.round((correct / keyedCount) * 100) : "",
       // extra fields (harmless if the sheet script ignores unknown keys)
       registerNumber: state.student.reg || "",
+      // fields used by the results Google Sheet (subject-wise tabs)
+      sheet: SHEET_TAB,
+      school: state.student.school || "",
+      percent: keyedCount > 0 ? Math.round((correct / keyedCount) * 100) : "",
+      unanswered: state.answers.filter(a => a === null || a === undefined).length,
       totalQuestions: total,
       wrong: keyedCount - correct
     });
